@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>telemate</title>
+<body style="background-color:rgb(145, 234, 250);">
+<style>
+    
+    .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 0.8736em 0.9984em;
+  text-decoration: none;
+  font-size: 1.0608em;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4a26c9;
+  color: white;
+}
+</style>
+<style>
+ 
+  .speech 
+  {border: 0.1872em solid rgb(22, 21, 21); width: 18.72em; padding: 0;  margin-top:   29.952em;
+  margin-bottom: 0.624em;
+  margin-right: 6.24em;
+  margin-left: 31.2em;}
+  .speech input 
+  {border: 0; width: 16.848em; display: inline-block; height: 1.872em;}
+  .speech img 
+  {float: right; width: 1.248em }
+</style>
+<div class="topnav">
+    <a class="active" href="#home"><b>Telemate</b></a>
+    <a href="#developer">Developer</a>
+    <a href="#about">About</a>
+  </div>
+
+<!-- Search Form -->
+<form id="labnol" method="get">
+  <div class="speech">
+    <input type="text" name="q" id="transcript" placeholder="Search..." />
+    <img onclick="startDictation()" src="109197424.4de2598a.78x78o.bc9f36aeaee1"/>
+  </div>
+</form>
+<!-- HTML5 Speech Recognition API -->
+<script>
+  function startDictation() {
+
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.lang = "en-US";
+      recognition.start();
+
+      recognition.onresult = function(e) {
+        document.getElementById('transcript').value
+                                 = e.results[0][0].transcript;
+        recognition.stop();
+        document.getElementById('labnol').submit();
+      };
+
+      recognition.onerror = function(e) {
+        recognition.stop();
+      }
+
+    }
+  }
+</script>
+
+</body>
+</html>
