@@ -7,6 +7,6 @@ How to run telemate on local pc
 
 2. go to the path Telemate\TelemateServer
 
-3. opne you terminal and type "python manage.py runserver"
+3. open you terminal and type "python manage.py runserver"
 
 4. now visit "http://127.0.0.1:8000" in your local browser
