@@ -1,0 +1,37 @@
+body {
+    height: 100px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0.8736em 0.9984em;
+    text-decoration: none;
+    font-size: 1.0608em;
+}
+
+footer {
+    margin-top: 80vh;
+    justify-content: center;
+}
+
+#mic-image {
+    height: 38px;
+    justify-content: center;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #4a26c9;
+    color: white;
+}

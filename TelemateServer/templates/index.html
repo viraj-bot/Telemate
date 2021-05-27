@@ -1,88 +1,98 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>telemate</title>
-<body style="background-color:rgb(145, 234, 250);">
-<style>
-    
-    .topnav {
-  overflow: hidden;
-  background-color: #333;
-}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 0.8736em 0.9984em;
-  text-decoration: none;
-  font-size: 1.0608em;
-}
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'TelemateServer/style.css' %}">
 
-.topnav a.active {
-  background-color: #4a26c9;
-  color: white;
-}
-</style>
-<style>
- 
-  .speech 
-  {border: 0.1872em solid rgb(22, 21, 21); width: 18.72em; padding: 0;  margin-top:   29.952em;
-  margin-bottom: 0.624em;
-  margin-right: 6.24em;
-  margin-left: 31.2em;}
-  .speech input 
-  {border: 0; width: 16.848em; display: inline-block; height: 1.872em;}
-  .speech img 
-  {float: right; width: 1.248em }
-</style>
-<div class="topnav">
-    <a class="active" href="#home"><b>Telemate</b></a>
-    <a href="#developer">Developer</a>
-    <a href="#about">About</a>
-  </div>
+  <title>Telemate</title>
+</head>
 
-<!-- Search Form -->
-<form id="labnol" method="get">
-  <div class="speech">
-    <input type="text" name="q" id="transcript" placeholder="Search..." />
-    <img onclick="startDictation()" src="https://img.icons8.com/material-sharp/24/000000/microphone--v2.png"/>
-  </div>
-</form>
-<!-- HTML5 Speech Recognition API -->
-<script>
-  function startDictation() {
+<body>
+  <!-- <a href="{%static 'TelemateServer/hello.txt' %}"> click me </a> -->
 
-    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container-fluid">
+      <!-- <img src="{%static 'TelemateServer/pic1.png' %}"> -->
+      <a class="navbar-brand" href="#">Telemate</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex align-items-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
 
-      var recognition = new webkitSpeechRecognition();
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Themes
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">High-Tech</a></li>
+              <li><a class="dropdown-item" href="#">Jarvis</a></li>
+              <li><a class="dropdown-item" href="#">Veronica</a></li>
+              <li><a class="dropdown-item" href="#">Friday</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-      recognition.continuous = false;
-      recognition.interimResults = false;
+  <!-- <nav class="navbar navbar-light bg-light"> -->
+  <footer>
+    <div class="container d-flex justify-content-center align-items-end">
+      <div>
+        <form class="d-flex justify-content-center align-items-end" id="labnol" method="post">{% csrf_token %}
+          <input class="form-control" type="text" name="q" id="transcript" placeholder="Search . . . "
+            aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
 
-      recognition.lang = "en-US";
-      recognition.start();
+          <img id='mic-image' onclick="startDictation()"
+            src="https://img.icons8.com/material-sharp/24/000000/block-microphone.png" />
 
-      recognition.onresult = function(e) {
-        document.getElementById('transcript').value
-                                 = e.results[0][0].transcript;
-        recognition.stop();
-        document.getElementById('labnol').submit();
-      };
+          <!-- <img id='mic-image' onclick="startDictation()" href="{%static 'TelemateServer/pic2.jpg' %}" /> -->
+        </form>
+      </div>
+    </div>
+  </footer>
+  <!-- </nav> -->
 
-      recognition.onerror = function(e) {
-        recognition.stop();
-      }
 
-    }
-  }
-</script>
+  <!-- Optional JavaScript; choose one of the two! -->
 
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <script src="{%static 'TelemateServer/script.js' %}"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
 </body>
+
 </html>
