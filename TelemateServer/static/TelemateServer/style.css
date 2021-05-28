@@ -1,5 +1,15 @@
 body {
     height: 100px;
+    font-family: "Bree serif";
+    
+    background-color: rgb(206, 206, 206);
+    /* background-image: "https://www.thoughtco.com/thmb/Fj7HGv5VgAZ7M4yCBiMG05GlL34=/2121x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-1086740226-5c2d625a4cedfd00016ed36c.jpg"; */
+}
+
+#logo {
+    height: 40px;
+
+    color: white;
 }
 
 .topnav {

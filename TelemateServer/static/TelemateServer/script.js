@@ -1,12 +1,9 @@
 function startDictation() {
 
     if (window.hasOwnProperty('webkitSpeechRecognition')) {
-
         var recognition = new webkitSpeechRecognition();
-
         recognition.continuous = false;
-        recognition.interimResults = false;
-
+        recognition.interimResults = false; 
         recognition.lang = "en-US";
         document.getElementById('mic-image').src = "https://img.icons8.com/material/24/000000/microphone.png"
         recognition.start();
