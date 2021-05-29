@@ -122,8 +122,11 @@ STATIC_ROOT = ""
 
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = ('E:/My projects/Telemate/TelemateServer/static',)
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    # "/var/www/static/",
+    "/TelemateServer/static/",
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
