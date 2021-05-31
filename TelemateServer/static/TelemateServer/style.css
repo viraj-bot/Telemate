@@ -1,48 +1,222 @@
-
-body {
-    height: 100px;
-    font-family: "Bree serif";
-    
-    /* background-color: rgb(206, 206, 206); */
-    background-image: "https://cdn.pixabay.com/photo/2018/05/14/16/54/cyber-3400789_1280.jpg";
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    ;
 }
 
-#logo {
-    height: 40px;
+/* backgroung image  */
 
-    color: white;
+.bg {
+    /* background-image: url({%static 'TelemateSever/back.jpg' %}); */
+    background-size: 100%;
+    filter: brightness(0.5);
+    position: absolute;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    z-index: -2;
 }
 
-.topnav {
-    overflow: hidden;
-    background-color: #333;
+/* nav bar  */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #050526;
 }
 
-.topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 0.8736em 0.9984em;
+nav ul {
+    display: flex;
+    list-style-type: none;
+    height: 5.5vw;
+    align-items: center;
+    min-height: 51px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    font-weight: bold;
+    padding-right: 0vw;
+    font-size: 20px;
+}
+
+.logo a img {
+    height: 3.5vw;
+    padding-left: 5vw;
+    padding-right: 0vw;
+    min-height: 35px;
+}
+
+nav ul li {
+    padding-right: 0.4vw;
+    color: rgb(185, 185, 185);
+}
+
+.v_line {
+    display: flex;
+}
+
+.h_line {
+    display: none;
+}
+
+.first_element a {
+    padding-left: 0px;
+}
+
+.themes {
+    color: rgb(185, 185, 185);
     text-decoration: none;
-    font-size: 1.0608em;
+    padding-right: 2vw;
+    font-family: 'Bree Serif', serif;
 }
 
-footer {
-    margin-top: 80vh;
-    justify-content: center;
+nav ul li a {
+    color: rgb(185, 185, 185);
+    text-decoration: none;
+    padding-right: 2vw;
+    font-family: 'Bree Serif', serif;
 }
 
-#mic-image {
-    height: 38px;
-    justify-content: center;
+/* nav bar ends here  */
+
+/* submenu */
+
+.submenu {
+    display: none;
+    border-radius: 7px;
 }
 
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
+.themes:hover .submenu {
+    display: block;
+    position: absolute;
+    background-color: #050526;
+    margin-left: -15px;
+    padding: 15px 15px;
+    height: 135px;
+    width: auto;
 }
 
-.topnav a.active {
-    background-color: #4a26c9;
+.themes:hover .submenu ul {
+    display: block;
+}
+
+.themes:hover .submenu ul li {
+    border-bottom: 1px dotted white;
+    padding: 7px;
+    border-radius: 0px;
+}
+
+.themes:hover .submenu ul li:last-child {
+    border-bottom: none;
+    /* sub menu end here  */
+}
+
+/* hover effect on nav bar */
+
+nav ul li a:hover {
+    font-weight: bolder;
     color: white;
 }
+
+.themes:hover {
+    font-weight: bolder;
+    color: white;
+}
+
+/* main body starts here.  */
+
+/* .box is for aligning search, enter button and mic button  */
+
+.box {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* seach box  */
+
+.search {
+    height: 30px;
+    width: 300px;
+    padding-left: 25px;
+    border-radius: 25px;
+}
+
+/* enter button  */
+
+.enter {
+    height: 33px;
+    margin: 0px 5px;
+}
+
+/* mic button  */
+
+.mic {
+    height: 32px;
+}
+
+/* hover effect on seach box  */
+
+.search:hover {
+    height: 31px;
+    width: 301px;
+}
+
+.enter:hover {
+    height: 35px;
+}
+
+.mic:hover {
+    height: 34px;
+}
+
+/* making responsive */
+
+@media screen and (max-width:500px) {
+    nav ul {
+        display: block;
+        list-style-type: none;
+        height: auto;
+        align-items: center;
+        min-height: 51px;
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+    nav {
+        display: block;
+        justify-content: space-between;
+        background-color: #050526;
+    }
+    .v_line {
+        display: none;
+    }
+    .h_line {
+        display: block;
+        width: 90vw;
+        margin: auto;
+    }
+    /* making responsive of sub menu */
+    .themes:hover .submenu {
+        display: flex;
+        position: relative;
+        background-color: #050526;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 15px;
+        height: 20px;
+        width: auto;
+    }
+    .themes:hover .submenu ul {
+        display: flex;
+    }
+    .themes:hover .submenu ul li {
+        border-bottom: none;
+    }
