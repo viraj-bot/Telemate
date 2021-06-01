@@ -68,11 +68,11 @@
 
         <div class="box">
             <form method="post"> {% csrf_token %}
-                <input type="text" class="search" placeholder="type here......">
-                <button type="submit"> <input type="image" class="enter" name="search"
-                        src="{%static 'TelemateServer/enter.png' %}" alt="search"></button>
-                <input type="image" onclick="startDictation()" class="mic" name="mic"
-                    src="{%static 'TelemateServer/mic.png' %}" alt="mic">
+                <input type="text" name="q" class="search" id="transcript" placeholder="Search Here">
+                <img type="submit" class="enter" name="search" src="{%static 'TelemateServer/enter.png' %}"
+                    alt="search">   
+                <img onclick="startDictation()" id="mic" src="https://i.ibb.co/kS74wtp/mic-off.png"
+                    alt="mic">
             </form>
         </div>
     </main>

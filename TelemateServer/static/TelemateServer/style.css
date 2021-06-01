@@ -89,7 +89,7 @@ nav ul li a {
 
 .submenu {
     display: none;
-    border-radius: 7px;
+    border-radius: 7px 5px;
 }
 
 .themes:hover .submenu {
@@ -134,8 +134,8 @@ nav ul li a:hover {
 /* .box is for aligning search, enter button and mic button  */
 
 .box {
-    height: 75vh;
     display: flex;
+    height: 75vh;
     justify-content: center;
     align-items: flex-end;
 }
@@ -158,7 +158,7 @@ nav ul li a:hover {
 
 /* mic button  */
 
-.mic {
+#mic {
     height: 32px;
 }
 
@@ -173,7 +173,7 @@ nav ul li a:hover {
     height: 35px;
 }
 
-.mic:hover {
+#mic:hover {
     height: 34px;
 }
 
@@ -220,3 +220,4 @@ nav ul li a:hover {
     .themes:hover .submenu ul li {
         border-bottom: none;
     }
+}
