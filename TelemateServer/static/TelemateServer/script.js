@@ -24,3 +24,6 @@ function startDictation() {
 
     }
 }
+function submit() {
+    document.getElementById('labnol').submit();
+}
