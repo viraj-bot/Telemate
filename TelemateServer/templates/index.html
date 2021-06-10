@@ -12,60 +12,7 @@
 </head>
 
 <body>
-    <div class="bg" style="background-image: url( {%static 'TelemateServer/back.jpg' %} );"> </div>
-    <header>
-
-        <nav>
-
-            <ul>
-                <li>
-                    <div class="logo">
-                        <a href="https://github.com/Telemate/Telemate" target="_blank"> <img
-                                src="{%static 'TelemateServer/robot.png' %}" alt="robot">
-                        </a>
-
-                        <a href="https://github.com/Telemate/Telemate" target="_blank"> Telemate</a>
-
-                    </div>
-                </li>
-
-            </ul>
-            <div class="h_line">
-                <hr>
-            </div>
-            <ul>
-                <li><span class="v_line">|</span></li>
-
-
-                <li> <span class="first_element"><a href="home#">Home</a></span> </li>
-
-                <li> <a href="Features#">Features</a></li>
-                <li><span class="themes">Themes
-                        <div class="submenu">
-                            <ul>
-                                <li><a href="#High-tech">High-tech</a></li>
-                                <li><a href="#Jarvis">Jarvis</a></li>
-                                <li><a href="#Veronica">Veronica</a></li>
-                                <li><a href="#Friday">Friday</a></li>
-                            </ul>
-                    </span>
-                    </div>
-
-                </li>
-
-
-                <li> <a href="About us#">About us</a></li>
-
-                <li> <a href="Contact us#">Contact us</a></li>
-
-
-            </ul>
-        </nav>
-
-    </header>
-
     <main>
-
         <div class="box">
             <form method="post" id="labnol"> {% csrf_token %}
                 <input type="text" name="q" class="search" id="transcript" placeholder="Search Here">
