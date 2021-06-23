@@ -2,6 +2,7 @@ import React from 'react'
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Speech from 'react-speech'
 
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
@@ -48,12 +49,18 @@ class App extends React.Component {
             .catch(() => {
             })
     };
-
+    speak=(e)=>
+    {
+         React.render(
+    <Speech text="Welcome to react speech" />,
+    document.getElementById('node')
+  );
+    }
 
     render() {
         return (
             <>
-
+                <div id="node"></div>
                 <div className="bg"></div>
                 <header>
                     <nav>
@@ -123,7 +130,8 @@ class App extends React.Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        : " "}
+                                        : ""
+                                          }
                                     {String((detail.response)) !== "" ?
                                         <div className="msg left-msg">
                                             <div className="msg-img" id="bot-image"></div>
@@ -146,6 +154,7 @@ class App extends React.Component {
                                                 <div className="snippet" data-title=".dot-falling">
                                                     <div className="stage">
                                                         <div className="dot-falling"></div>
+
                                                     </div>
                                                 </div>
                                             </div>
